@@ -1,4 +1,1 @@
 # D-ESCA-3
-
-NGUYEN LAM NGHIA
-
