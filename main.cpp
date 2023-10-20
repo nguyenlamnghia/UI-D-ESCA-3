@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
     QQuickView view;
     view.engine()->addImportPath("qrc:/UI/imports");
 //    view.setSource(QUrl("qrc:/UI/content/Screen01.ui.qml"));
-    view.setSource(QUrl("qrc:/UI/content/Test.qml"));
+    view.setSource(QUrl("qrc:/UI/content/Adjustment_screen.qml"));
     if (!view.errors().isEmpty())
         return -1;
     view.show();
