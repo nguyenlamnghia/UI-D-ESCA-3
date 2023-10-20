@@ -27,4 +27,3 @@ DISTFILES += \
     UI/assets/robot.png \
     UI/assets/setting-icon.png \
     UI/assets/wifi-icon.png \
-    UI/content/Test.qml
