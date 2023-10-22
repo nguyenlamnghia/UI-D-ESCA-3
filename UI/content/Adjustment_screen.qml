@@ -21,4 +21,14 @@ Rectangle {
         anchors.horizontalCenter: parent.horizontalCenter
 
     }
+
+    Image {
+        id: image
+        x: 6
+        y: 4
+        width: 45
+        height: 74
+        source: "../assets/logo-hust.png"
+        fillMode: Image.PreserveAspectFit
+    }
 }
