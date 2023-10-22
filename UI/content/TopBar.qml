@@ -35,29 +35,53 @@ Rectangle {
         font.bold: true
     }
 
-    Image {
-        id: image1
-        width: 30
-        height: 30
-        anchors.verticalCenter: parent.verticalCenter
+    Rectangle{
+        id: settingRec
+        x: 9
+        y: 7
+        width: 31
+        height: 34
+        color: maSetting.containsMouse ? "gray" : "#000000"
         anchors.left: parent.left
-        source: "../assets/setting-icon.png"
-        anchors.verticalCenterOffset: 0
-        anchors.leftMargin: 20
-        fillMode: Image.PreserveAspectFit
+        anchors.leftMargin: 15
+
+        Image {
+            id: settingImg
+            width: 30
+            height: 30
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.horizontalCenter: parent.horizontalCenter
+            source: "../assets/setting-icon.png"
+            anchors.verticalCenterOffset: 0
+            anchors.horizontalCenterOffset: 0
+
+            fillMode: Image.PreserveAspectFit
+
+            MouseArea {
+                id: maSetting
+                anchors.fill: parent
+                anchors.rightMargin: 0
+                anchors.bottomMargin: -2
+                anchors.leftMargin: 0
+                anchors.topMargin: 2
+                hoverEnabled: true
+
+            }
+        }
     }
+
 
     Rectangle {
         id: rectangle11
+        x: 69
         y: 0
         width: 106
         height: 50
         color: "#000000"
-        anchors.left: image1.right
         anchors.leftMargin: 28
 
         Text {
-            id: text6
+            id: timeText
             y: 5
             color: "#ffffff"
             text: qsTr("12:00 PM")
@@ -67,7 +91,7 @@ Rectangle {
         }
 
         Text {
-            id: text7
+            id: dateText
             x: -6
             y: 28
             color: "#ffffff"
@@ -79,38 +103,51 @@ Rectangle {
     }
 
     Rectangle {
-        id: rectangle12
+        id: stateLedRec
         x: 498
-        y: 17
-        width: 20
-        height: 20
+        y: 21
+        width: 12
+        height: 12
         color: "#00ffc8"
         radius: 10
+        anchors.right: wifiBtn.left
+        anchors.rightMargin: 20
+
     }
 
     Text {
-        id: text8
+        id: stateRunningText
         x: 432
         y: 17
         color: "#ffffff"
         text: qsTr("Running")
         font.pixelSize: 16
+        anchors.rightMargin: 6
+        anchors.right: stateLedRec.left
     }
 
+    Rectangle{
+
+    }
     Image {
-        id: image2
+        id: wifiBtn
         x: 544
         y: 13
         width: 30
         height: 30
-        anchors.right: image3.left
+        anchors.right: bluetoothBtn.left
         source: "../assets/wifi-icon.png"
         anchors.rightMargin: 10
         fillMode: Image.PreserveAspectFit
+
+        MouseArea {
+            id: maWifi
+            anchors.fill: parent
+        }
     }
 
     Image {
-        id: image3
+        id: bluetoothBtn
         x: 595
         y: 13
         width: 30
@@ -119,6 +156,11 @@ Rectangle {
         source: "../assets/bluetooth-icon.png"
         anchors.rightMargin: 20
         fillMode: Image.PreserveAspectFit
+
+        MouseArea {
+            id: maBluetooth
+            anchors.fill: parent
+        }
     }
 }
 

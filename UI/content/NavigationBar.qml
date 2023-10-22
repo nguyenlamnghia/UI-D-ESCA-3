@@ -9,7 +9,7 @@ import QtQuick.Controls 2.15
 //}
 
 Rectangle {
-    id: rectangle1
+    id: bottomBarRec
     width: 1024
     height: 50
     color: "#000000"
@@ -17,7 +17,7 @@ Rectangle {
     anchors.bottomMargin: 0
 
     Rectangle {
-        id: rectangle2
+        id: mainMenuRec
         width: 220
         height: 50
         color: "#000000"
@@ -27,12 +27,18 @@ Rectangle {
         anchors.topMargin: 0
 
         Text {
-            id: text1
+            id: mainMenuText
             color: "#ffffff"
             text: qsTr("Main Menu")
             anchors.verticalCenter: parent.verticalCenter
             font.pixelSize: 20
             anchors.horizontalCenter: parent.horizontalCenter
+        }
+
+        MouseArea {
+            id: maMainMenu
+            anchors.fill: parent
+            cursorShape: Qt.WaitCursor
         }
     }
 
@@ -42,40 +48,61 @@ Rectangle {
         width: 2
         height: 50
         color: "#ffffff"
-        anchors.left: rectangle2.right
+        anchors.left: mainMenuRec.right
+
     }
 
     Rectangle {
-        id: rectangle4
-        width: 220
+        id: fileComponentsRec
+        y: 0
+        width: 230
         height: 50
-        color: "#000000"
+        color: maFileComponents.containsMouse ? "gray" : "#000000"
         anchors.left: rectangle3.right
+
         Text {
-            id: text2
+            id: fileComponentsText
             color: "#ffffff"
             text: qsTr("File Components")
             anchors.verticalCenter: parent.verticalCenter
             font.pixelSize: 20
             anchors.horizontalCenter: parent.horizontalCenter
         }
+
+        MouseArea {
+            id: maFileComponents
+            anchors.fill: parent
+            anchors.rightMargin: 0
+            hoverEnabled: true
+
+            onClicked: {
+                console.log("minh dai ca")
+            }
+
+        }
     }
 
     Rectangle {
-        id: rectangle5
+        id: adjustParaRec
         width: 220
         height: 50
-        color: "#000000"
+        color: maAdjustPara.containsMouse ? "gray" : "#000000"
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.topMargin: 0
         Text {
-            id: text3
+            id: adjustParaText
             color: "#ffffff"
             text: qsTr("Adjust Parameter")
             anchors.verticalCenter: parent.verticalCenter
             font.pixelSize: 20
             anchors.horizontalCenter: parent.horizontalCenter
+        }
+
+        MouseArea {
+            id: maAdjustPara
+            hoverEnabled: true
+            anchors.fill: parent
         }
     }
 
@@ -85,31 +112,58 @@ Rectangle {
         width: 2
         height: 50
         color: "#ffffff"
-        anchors.right: rectangle5.left
+        anchors.right: adjustParaRec.left
     }
 
     Rectangle {
-        id: rectangle7
-        width: 220
+        id: monitorSystemRec
+        x: 571
+        y: 0
+        width: 231
         height: 50
-        color: "#000000"
+        color: maMonitorSystem.containsMouse ? "gray" : "#000000"
         anchors.right: rectangle6.left
+
         Text {
-            id: text4
+            id: monitorSystemText
             color: "#ffffff"
             text: qsTr("Monitor System")
             anchors.verticalCenter: parent.verticalCenter
             font.pixelSize: 20
             anchors.horizontalCenter: parent.horizontalCenter
         }
+
+        MouseArea {
+            id: maMonitorSystem
+            hoverEnabled: true
+            anchors.fill: parent
+            anchors.leftMargin: 0
+        }
     }
     Image {
-        id: logo
-        y: -85
+        id: logoImg
+        y: -84
         width: 172
         height: 162
         source: "../assets/robot.png"
+        focus: false
+        mirror: false
+        mipmap: false
+        autoTransform: false
+        asynchronous: false
+        anchors.horizontalCenterOffset: 0
         anchors.horizontalCenter: parent.horizontalCenter
-        fillMode: Image.PreserveAspectFit
+        fillMode: Image.PreserveAspectCrop
+
+        MouseArea {
+            id: maLogo
+            anchors.fill: parent
+            anchors.leftMargin: 35
+            anchors.topMargin: 35
+            anchors.rightMargin: 35
+            anchors.bottomMargin: 35
+
+            hoverEnabled: true
+        }
     }
 }

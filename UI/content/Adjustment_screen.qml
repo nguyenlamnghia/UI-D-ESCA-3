@@ -18,7 +18,10 @@ Rectangle {
         width: 650
         height: 50
         anchors.top: parent.top
+        anchors.horizontalCenterOffset: 0
+        anchors.topMargin: -5
         anchors.horizontalCenter: parent.horizontalCenter
 
     }
+
 }
