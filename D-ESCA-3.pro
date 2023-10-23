@@ -23,7 +23,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-    UI/assets/bluetooth-icon.png \
-    UI/assets/robot.png \
-    UI/assets/setting-icon.png \
-    UI/assets/wifi-icon.png \
+    UI/assets/

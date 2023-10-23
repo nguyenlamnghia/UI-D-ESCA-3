@@ -1,18 +1,16 @@
-
 <RCC>
-<qresource>
-<file>UI.qmlproject</file>
-<file>content/Adjustment_screen.qml</file>
-<file>content/App.qml</file>
-<file>content/NavigationBar.qml</file>
-<file>content/Screen01.ui.qml</file>
-<file>content/TopBar.qml</file>
-<file>imports/UI/Constants.qml</file>
-<file>imports/UI/DirectoryFontLoader.qml</file>
-<file>imports/UI/EventListModel.qml</file>
-<file>imports/UI/EventListSimulator.qml</file>
-<file>imports/UI/NavigationBar.qml</file>
-<file>imports/UI/qmldir</file>
-<file>qtquickcontrols2.conf</file>
-</qresource>
+    <qresource prefix="/">
+        <file>UI.qmlproject</file>
+        <file>content/Adjustment_screen.qml</file>
+        <file>content/App.qml</file>
+        <file>content/NavigationBar.qml</file>
+        <file>content/Screen01.ui.qml</file>
+        <file>content/TopBar.qml</file>
+        <file>imports/UI/Constants.qml</file>
+        <file>imports/UI/DirectoryFontLoader.qml</file>
+        <file>imports/UI/EventListModel.qml</file>
+        <file>imports/UI/EventListSimulator.qml</file>
+        <file>imports/UI/qmldir</file>
+        <file>qtquickcontrols2.conf</file>
+    </qresource>
 </RCC>

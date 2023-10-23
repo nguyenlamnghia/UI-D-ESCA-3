@@ -142,7 +142,7 @@ Rectangle {
     }
     Image {
         id: logoImg
-        y: -84
+        y: -88
         width: 172
         height: 162
         source: "../assets/robot.png"
