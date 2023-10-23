@@ -32,7 +32,11 @@ Rectangle {
         y: 46
         width: 1024
         height: 500
+        onLoaded: console.log(loader.item.width)
 
+    }
+    Component.onCompleted: {
+             loader.setSource("MainMenu.qml")
     }
 
 }

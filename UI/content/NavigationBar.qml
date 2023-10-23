@@ -39,6 +39,10 @@ Rectangle {
             id: maMainMenu
             anchors.fill: parent
             cursorShape: Qt.WaitCursor
+            onClicked: {
+                console.log("minh dai ca o main")
+                loader.source = "MainMenu.qml"
+            }
         }
     }
 
@@ -73,11 +77,9 @@ Rectangle {
             id: maFileComponents
             anchors.fill: parent
             anchors.rightMargin: 0
-            hoverEnabled: true
-
             onClicked: {
                 console.log("minh dai ca")
-                loader.source = "Doam.qml"
+                loader.source = "FileHere.qml"
             }
 
         }
@@ -102,11 +104,10 @@ Rectangle {
 
         MouseArea {
             id: maAdjustPara
-            hoverEnabled: true
             anchors.fill: parent
             onClicked: {
                 console.log("minh dai ca")
-                loader.source = "FileHere.qml"
+                loader.source = "AdjustPara.qml"
             }
         }
     }
@@ -140,12 +141,11 @@ Rectangle {
 
         MouseArea {
             id: maMonitorSystem
-            hoverEnabled: true
             anchors.fill: parent
             anchors.leftMargin: 0
             onClicked: {
                 console.log("minh vip pro")
-                loader.source = "Monicute.qml"
+                loader.source = "Monitor.qml"
             }
 
         }

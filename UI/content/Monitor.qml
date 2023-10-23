@@ -12,11 +12,11 @@ Item {
 
         Text {
             id: text1
-            x: 408
-            y: 191
+            x: 589
+            y: 82
             width: 332
             height: 92
-            text: qsTr("dday la man hinh file")
+            text: qsTr("dday la man hinh monitor")
             font.pixelSize: 12
         }
     }

@@ -12,7 +12,7 @@ Item {
         y: 0
         width: 1024
         height: 500
-        color: "#ffffff"
+        color: "#272d37"
 
         TextEdit {
             id: textEdit

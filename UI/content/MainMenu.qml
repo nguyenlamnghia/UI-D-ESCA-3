@@ -7,15 +7,16 @@ Item {
     Rectangle{
         width: 1024
         height: 500
+        color: "#272d37"
         anchors.centerIn: parent
 
         Text {
             id: text1
-            x: 589
-            y: 82
+            x: 408
+            y: 191
             width: 332
             height: 92
-            text: qsTr("dday la man hinh lop truong")
+            text: qsTr("dday la man hinh main")
             font.pixelSize: 12
         }
     }
