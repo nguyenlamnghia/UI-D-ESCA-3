@@ -77,6 +77,7 @@ Rectangle {
 
             onClicked: {
                 console.log("minh dai ca")
+                loader.source = "Doam.qml"
             }
 
         }
@@ -103,6 +104,10 @@ Rectangle {
             id: maAdjustPara
             hoverEnabled: true
             anchors.fill: parent
+            onClicked: {
+                console.log("minh dai ca")
+                loader.source = "FileHere.qml"
+            }
         }
     }
 
@@ -138,6 +143,11 @@ Rectangle {
             hoverEnabled: true
             anchors.fill: parent
             anchors.leftMargin: 0
+            onClicked: {
+                console.log("minh vip pro")
+                loader.source = "Monicute.qml"
+            }
+
         }
     }
     Image {
@@ -154,6 +164,7 @@ Rectangle {
         anchors.horizontalCenterOffset: 0
         anchors.horizontalCenter: parent.horizontalCenter
         fillMode: Image.PreserveAspectCrop
+        z : 1
 
         MouseArea {
             id: maLogo

@@ -12,7 +12,10 @@ Rectangle {
         width: 1024
         height: 50
         anchors.bottom: parent.bottom
+        z:1
     }
+    
+    
     TopBar{
         id: topBar
         width: 650
@@ -21,6 +24,14 @@ Rectangle {
         anchors.horizontalCenterOffset: 0
         anchors.topMargin: -5
         anchors.horizontalCenter: parent.horizontalCenter
+    }
+
+    Loader {
+        id: loader
+        x: 0
+        y: 46
+        width: 1024
+        height: 500
 
     }
 
