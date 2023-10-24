@@ -1,4 +1,6 @@
 import QtQuick 2.8
+import backend 1.0
+import qdsproject 1.0
 import QtQuick.Studio.Components 1.0
 import QtQuick.Studio.LogicHelper 1.0
 
@@ -55,7 +57,7 @@ Item {
         y: 115
         width: 282
         height: 194
-//        _45Text: BackendObject.time
+        _45Text: BackendObject.time
         minutesRemainingText: "CPU Usage"
     }
 

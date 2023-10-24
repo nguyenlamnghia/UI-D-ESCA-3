@@ -23,5 +23,12 @@ Rectangle {
 
     }
 
+    CpuFrame{
+        x: 53
+        y: 100
+        width: 211
+        height: 213
+    }
+
 
 }

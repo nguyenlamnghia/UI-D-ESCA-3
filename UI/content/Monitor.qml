@@ -20,4 +20,9 @@ Item {
             font.pixelSize: 12
         }
     }
+
+    CpuFrame{
+        x: 81
+        y: 58
+    }
 }
