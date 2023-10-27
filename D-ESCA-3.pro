@@ -5,6 +5,7 @@ QT += quick
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        cpubackend.cpp \
         main.cpp
 
 RESOURCES += qml.qrc
@@ -13,6 +14,7 @@ RESOURCES += \
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH = UI/imports
+QML_IMPORT_PATH = UI/cppimports
 
 # Additional import path used to resolve QML modules just for Qt Quick Designer
 QML_DESIGNER_IMPORT_PATH =
@@ -27,3 +29,6 @@ DISTFILES += \
     UI/assets/robot.png \
     UI/assets/setting-icon.png \
     UI/assets/wifi-icon.png \
+
+HEADERS += \
+    cpubackend.h
