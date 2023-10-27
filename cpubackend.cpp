@@ -50,7 +50,7 @@ CpuBackend::CpuBackend(QObject *parent) : QObject(parent) {
 
 //        waterActiveChanged();
         cpuChanged();
-//        timeChanged();
+        timeChanged();
     });
 }
 

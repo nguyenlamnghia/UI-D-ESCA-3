@@ -13,7 +13,7 @@ class CpuBackend : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(int percentage READ percentage NOTIFY cpuChanged)
-//    Q_PROPERTY(QString time READ time NOTIFY timeChanged)
+    Q_PROPERTY(QString time READ time NOTIFY timeChanged)
 //    Q_PROPERTY(bool waterActive READ waterActive NOTIFY waterActiveChanged)
 
 public:
@@ -21,7 +21,7 @@ public:
 
 signals:
     void cpuChanged();
-//    void timeChanged();
+    void timeChanged();
 //    void waterActiveChanged();
 
 private:
