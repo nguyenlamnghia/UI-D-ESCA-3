@@ -33,6 +33,7 @@ private:
 
     QTimer m_timer;
 
+    unsigned long long lastTotalUser, lastTotalUserLow, lastTotalSys, lastTotalIdle;
     double cpu_m_steps = 0;
     int cpu_usage = 0;
 
@@ -42,7 +43,9 @@ private:
     unsigned int user, total = 0;
     std::tuple<unsigned int, unsigned int> readFile();
 
-    double getCurrentValueRam();
+    double getCpu();
+    double getRam();
+    int parseLine(char* line);
 
 
 
