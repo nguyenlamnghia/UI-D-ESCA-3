@@ -1,6 +1,71 @@
 #include "cpubackend.h"
 #include<QDebug>
 
+
+// Some func for ram
+int parseLine(char* line){
+    // This assumes that a digit will be found and the line ends in " Kb".
+    int i = strlen(line);
+    const char* p = line;
+    while (*p <'0' || *p > '9') p++;
+    line[i-3] = '\0';
+    i = atoi(p);
+    return i;
+}
+double getValue(){ //Note: this value is in KB!
+    FILE* file = fopen("/proc/meminfo", "r");
+    int memUsage = -1;
+    int memTotal = -1;
+    char line[128];
+
+    while (fgets(line, 128, file) != NULL){
+        if (strncmp(line, "MemAvailable:", 6) == 0){
+            memUsage = parseLine(line);
+        }
+        if (strncmp(line, "MemTotal:", 6) == 0){
+            memTotal = parseLine(line);
+        }
+    }
+    fclose(file);
+    return static_cast<double>(memUsage)/memTotal * 100;
+}
+
+static unsigned long long lastTotalUser, lastTotalUserLow, lastTotalSys, lastTotalIdle;
+double CpuBackend::getCurrentValueRam()
+{
+    double percent;
+    FILE* file;
+    unsigned long long totalUser, totalUserLow, totalSys, totalIdle, total;
+
+    file = fopen("/proc/stat", "r");
+    fscanf(file, "cpu %llu %llu %llu %llu", &totalUser, &totalUserLow,
+           &totalSys, &totalIdle);
+    fclose(file);
+
+    if (totalUser < lastTotalUser || totalUserLow < lastTotalUserLow ||
+        totalSys < lastTotalSys || totalIdle < lastTotalIdle){
+        //Overflow detection. Just skip this value.
+        percent = -1.0;
+    }
+    else{
+        total = (totalUser - lastTotalUser) + (totalUserLow - lastTotalUserLow) +
+                (totalSys - lastTotalSys);
+        percent = total;
+        total += (totalIdle - lastTotalIdle);
+        percent /= total;
+        percent *= 100;
+    }
+
+    lastTotalUser = totalUser;
+    lastTotalUserLow = totalUserLow;
+    lastTotalSys = totalSys;
+    lastTotalIdle = totalIdle;
+
+    return percent;
+}
+// end
+
+// some func for cpu
 std::tuple<unsigned int, unsigned int> CpuBackend::readFile() {
     char line[40];
     unsigned int total_now = 0, user_now = 0, pos = 0;
@@ -37,6 +102,8 @@ CpuBackend::CpuBackend(QObject *parent) : QObject(parent) {
     m_timer.setSingleShot(false);
     m_timer.start(1000);
     connect(&m_timer, &QTimer::timeout, this, [this]() {
+
+        // For cpu
         unsigned int total_now = 0, user_now = 0;
         std::tuple<unsigned int, unsigned int> tuple = readFile();
         user_now = std::get<0>(tuple);
@@ -47,7 +114,16 @@ CpuBackend::CpuBackend(QObject *parent) : QObject(parent) {
         total = total_now;
         user = user_now;
 
+        // For ram
+        ram_m_steps = getCurrentValueRam();
+        ram_m_steps = getValue();
+        ram_usage = ram_m_steps;
+
+
+
+        // Both
         cpuChanged();
+        ramChanged();
     });
 }
 
@@ -55,4 +131,10 @@ int CpuBackend::cpuPercentage() const { return (cpu_m_steps-50); }
 
 QString CpuBackend::cpuText() const {
     return QString::number(cpu_usage) + "%";
+}
+
+int CpuBackend::ramPercentage() const { return (ram_m_steps-50); }
+
+QString CpuBackend::ramText() const {
+    return QString::number(ram_usage) + "%";
 }

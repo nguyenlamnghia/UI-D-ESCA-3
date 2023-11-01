@@ -30,5 +30,12 @@ Rectangle {
         height: 213
     }
 
+    RamFrame{
+        x: 557
+        y: 100
+        width: 211
+        height: 213
+    }
+
 
 }
