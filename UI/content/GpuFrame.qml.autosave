@@ -51,19 +51,19 @@ Item {
         }
     }
 
-    UsageTextElement {
+    UsageT {
         id: timerElement
         x: 59
         y: 115
         width: 282
         height: 194
-        _45Text: BackendObject.ramText
-        minutesRemainingText: "RAM Usage"
+        _45Text: BackendObject.cpuText
+        minutesRemainingText: "GPU Usage"
     }
 
     RangeMapper {
         id: rangeMapper
-        input: BackendObject.ramPercentage
+        input: BackendObject.cpuPercentage
         outputMaximum: 360
     }
 }

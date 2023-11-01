@@ -29,6 +29,7 @@ DISTFILES += \
     UI/assets/robot.png \
     UI/assets/setting-icon.png \
     UI/assets/wifi-icon.png \
+    UI/content/UsageTextElement.qml
 
 HEADERS += \
     cpubackend.h

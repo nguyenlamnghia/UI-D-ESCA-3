@@ -51,7 +51,7 @@ Item {
         }
     }
 
-    CpuNumberElement {
+    UsageTextElement {
         id: timerElement
         x: 59
         y: 115

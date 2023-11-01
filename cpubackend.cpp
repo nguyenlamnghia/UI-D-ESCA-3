@@ -1,6 +1,22 @@
 #include "cpubackend.h"
 #include<QDebug>
 
+#include <QStorageInfo>
+#include <QDebug>
+
+void printRootDriveInfo() {
+    QStorageInfo storage = QStorageInfo::root();
+
+    qDebug() << storage.rootPath();
+    if (storage.isReadOnly())
+        qDebug() << "isReadOnly:" << storage.isReadOnly();
+
+    qDebug() << "name:" << storage.name();
+    qDebug() << "filesystem type:" << storage.fileSystemType();
+    qDebug() << "size:" << storage.bytesTotal()/1024/1024 << "MB";
+    qDebug() << "free space:" << storage.bytesAvailable()/1024/1024 << "MB";
+}
+
 
 // Some func for ram
 int CpuBackend::parseLine(char* line){
@@ -77,6 +93,9 @@ CpuBackend::CpuBackend(QObject *parent) : QObject(parent) {
         // For ram
         ram_m_steps = getRam();
         ram_usage = ram_m_steps;
+
+        // For disk
+        printRootDriveInfo();
 
 
 
