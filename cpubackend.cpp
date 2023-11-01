@@ -4,17 +4,18 @@
 #include <QStorageInfo>
 #include <QDebug>
 
-void printRootDriveInfo() {
+double CpuBackend::getDisk() {
     QStorageInfo storage = QStorageInfo::root();
 
     qDebug() << storage.rootPath();
     if (storage.isReadOnly())
         qDebug() << "isReadOnly:" << storage.isReadOnly();
 
-    qDebug() << "name:" << storage.name();
-    qDebug() << "filesystem type:" << storage.fileSystemType();
-    qDebug() << "size:" << storage.bytesTotal()/1024/1024 << "MB";
-    qDebug() << "free space:" << storage.bytesAvailable()/1024/1024 << "MB";
+//    qDebug() << "name:" << storage.name();
+//    qDebug() << "filesystem type:" << storage.fileSystemType();
+//    qDebug() << "size:" << storage.bytesTotal()/1024/1024 << "MB";
+//    qDebug() << "free space:" << storage.bytesAvailable()/1024/1024 << "MB";
+    return static_cast<double>(storage.bytesTotal()-storage.bytesAvailable())/storage.bytesTotal() * 100;
 }
 
 
@@ -95,13 +96,15 @@ CpuBackend::CpuBackend(QObject *parent) : QObject(parent) {
         ram_usage = ram_m_steps;
 
         // For disk
-        printRootDriveInfo();
+        disk_m_steps = getDisk();
+        disk_usage = disk_m_steps;
 
 
 
         // Both
         cpuChanged();
         ramChanged();
+        diskChanged();
     });
 }
 
@@ -115,4 +118,8 @@ int CpuBackend::ramPercentage() const { return (ram_m_steps-50); }
 
 QString CpuBackend::ramText() const {
     return QString::number(ram_usage) + "%";
+}
+
+QString CpuBackend::diskText() const {
+    return "Disk usage: " + QString::number(disk_usage) + "%";
 }

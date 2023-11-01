@@ -13,26 +13,10 @@ Item {
         x: 0
         y: 0
         width: 176
-        height: 75
+        height: 30
         color: "#ffffff"
-        text: BackendObject.cpuText
-        font.pixelSize: 60
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-        wrapMode: Text.Wrap
-        font.family: "Roboto"
-        font.weight: Font.Normal
-    }
-
-    Text {
-        id: minutesRemaining
-        x: 0
-        y: 75
-        width: 176
-        height: 46
-        color: "#ffffff"
-        text: BackendObject.cpuPercentage
-        font.pixelSize: 15
+        text: BackendObject.diskText
+        font.pixelSize: 20
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         wrapMode: Text.Wrap
