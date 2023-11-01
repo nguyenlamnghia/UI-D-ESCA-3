@@ -46,11 +46,31 @@ Rectangle {
     }
 
     DiskUsage {
-        id: timerElement
-        x: 37
-        y: 73
+        x: 48
+        y: 125
         width: 176
-        height: 121
+        height: 40
+    }
+
+    RunningTime{
+        x: 707
+        y: 125
+        width: 240
+        height: 40
+    }
+
+    InternetStatus{
+        x: 30
+        y: 175
+        width: 272
+        height: 40
+    }
+
+    ConnectionPort{
+        x: 707
+        y: 175
+        width: 240
+        height: 40
     }
 
 

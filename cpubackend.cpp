@@ -7,9 +7,9 @@
 double CpuBackend::getDisk() {
     QStorageInfo storage = QStorageInfo::root();
 
-    qDebug() << storage.rootPath();
-    if (storage.isReadOnly())
-        qDebug() << "isReadOnly:" << storage.isReadOnly();
+//    qDebug() << storage.rootPath();
+//    if (storage.isReadOnly())
+//        qDebug() << "isReadOnly:" << storage.isReadOnly();
 
 //    qDebug() << "name:" << storage.name();
 //    qDebug() << "filesystem type:" << storage.fileSystemType();

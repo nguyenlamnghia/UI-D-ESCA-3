@@ -29,6 +29,9 @@ DISTFILES += \
     UI/assets/robot.png \
     UI/assets/setting-icon.png \
     UI/assets/wifi-icon.png \
+    UI/content/ConnectionPort.qml \
+    UI/content/InternetStatus.qml \
+    UI/content/RunningTime.qml \
     UI/content/UsageTextElement.qml
 
 HEADERS += \

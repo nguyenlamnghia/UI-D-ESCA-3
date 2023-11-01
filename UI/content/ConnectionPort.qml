@@ -2,8 +2,8 @@ import QtQuick 2.8
 import backend 1.0
 
 Item {
-    id: timerElement
-    width: 176
+    id: connectionPort
+    width: 240
     height: 40
 //    property alias _45Text: _45.text
 //    property alias minutesRemainingText: minutesRemaining.text
@@ -12,10 +12,10 @@ Item {
         id: _45
         x: 0
         y: 0
-        width: 176
+        width: 240
         height: 40
         color: "#ffffff"
-        text: BackendObject.diskText
+        text: "Connection port: COM3"
         font.pixelSize: 20
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
