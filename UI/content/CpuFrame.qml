@@ -57,13 +57,13 @@ Item {
         y: 115
         width: 282
         height: 194
-        _45Text: BackendObject.time
+        _45Text: BackendObject.cpuText
         minutesRemainingText: "CPU Usage"
     }
 
     RangeMapper {
         id: rangeMapper
-        input: BackendObject.percentage
+        input: BackendObject.cpuPercentage
         outputMaximum: 360
     }
 }

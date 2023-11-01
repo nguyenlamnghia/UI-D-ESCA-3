@@ -42,22 +42,17 @@ CpuBackend::CpuBackend(QObject *parent) : QObject(parent) {
         user_now = std::get<0>(tuple);
         total_now = std::get<1>(tuple);
         unsigned int user_over_period = user_now - user, total_over_period = total_now - total;
-        m_steps = static_cast<double>(user_over_period)/total_over_period * 100;
-        cpu_usage = m_steps;
+        cpu_m_steps = static_cast<double>(user_over_period)/total_over_period * 100;
+        cpu_usage = cpu_m_steps;
         total = total_now;
         user = user_now;
 
-
-//        waterActiveChanged();
         cpuChanged();
-        timeChanged();
     });
 }
 
-int CpuBackend::percentage() const { return (m_steps-50); }
+int CpuBackend::cpuPercentage() const { return (cpu_m_steps-50); }
 
-QString CpuBackend::time() const {
+QString CpuBackend::cpuText() const {
     return QString::number(cpu_usage) + "%";
 }
-
-//bool CpuBackend::waterActive() const { return m_steps > 200 && m_steps < 800; }
