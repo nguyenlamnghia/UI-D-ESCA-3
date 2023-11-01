@@ -1,11 +1,12 @@
 import QtQuick 2.8
+import backend 1.0
 
 Item {
     id: timerElement
     width: 176
     height: 121
-    property alias _45Text: _45.text
-    property alias minutesRemainingText: minutesRemaining.text
+//    property alias _45Text: _45.text
+//    property alias minutesRemainingText: minutesRemaining.text
 
     Text {
         id: _45
@@ -14,7 +15,7 @@ Item {
         width: 176
         height: 75
         color: "#ffffff"
-        text: "45"
+        text: BackendObject.cpuText
         font.pixelSize: 60
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
@@ -30,7 +31,7 @@ Item {
         width: 176
         height: 46
         color: "#ffffff"
-        text: "Minutes Remaining"
+        text: BackendObject.cpuPercentage
         font.pixelSize: 15
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter

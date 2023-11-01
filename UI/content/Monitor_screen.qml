@@ -24,18 +24,35 @@ Rectangle {
     }
 
     CpuFrame{
-        x: 53
-        y: 100
-        width: 211
-        height: 213
+        x: 387
+        y: 88
+        width: 250
+        height: 250
     }
 
     RamFrame{
-        x: 557
-        y: 100
-        width: 211
-        height: 213
+        y: 250
+        width: 250
+        height: 250
+        anchors.right: parent.right
+        anchors.rightMargin: 67
     }
+    GpuFrame{
+        y: 250
+        width: 250
+        height: 250
+        anchors.left: parent.left
+        anchors.leftMargin: 48
+    }
+
+    DiskUsage {
+        id: timerElement
+        x: 37
+        y: 73
+        width: 176
+        height: 121
+    }
+
 
 
 }

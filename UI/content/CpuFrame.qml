@@ -6,15 +6,15 @@ import QtQuick.Studio.LogicHelper 1.0
 
 Item {
     id: cpuFrame
-    width: 400
-    height: 400
+    width: 250
+    height: 250
 
     Item {
         id: backgroundElipse
         x: 0
         y: 0
-        width: 400
-        height: 400
+        width: 250
+        height: 250
         Image {
             id: backgroundElipse1
             x: 0
@@ -27,8 +27,8 @@ Item {
         id: outlineElipse
         x: 0
         y: 0
-        width: 400
-        height: 400
+        width: 250
+        height: 250
         Image {
             id: outlineElipse1
             x: 0
@@ -37,14 +37,14 @@ Item {
 
             ArcItem {
                 id: arc
-                x: 15
-                y: 16
-                width: 369
-                height: 370
+                width: 231
+                height: 231
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.horizontalCenter: parent.horizontalCenter
                 end: rangeMapper.output
                 begin: -180
                 capStyle: 32
-                strokeWidth: 14
+                strokeWidth: 9
                 strokeColor: "#e9e755"
                 fillColor: "#00000000"
             }
@@ -53,10 +53,10 @@ Item {
 
     UsageTextElement {
         id: timerElement
-        x: 59
-        y: 115
-        width: 282
-        height: 194
+        x: 37
+        y: 73
+        width: 176
+        height: 121
         _45Text: BackendObject.cpuText
         minutesRemainingText: "CPU Usage"
     }
@@ -67,6 +67,5 @@ Item {
         outputMaximum: 360
     }
 }
-
 
 
